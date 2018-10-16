@@ -31,3 +31,8 @@ the second line will call class methods to manipulate the rover
 
 start with rover rotation and movement logic
 
+
+don't forget to double check that the Rover is actually in the grid
+
+console.log the answer
+write the answer in a text file
