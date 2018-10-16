@@ -48,3 +48,5 @@ write the answer in a text file
 
 
 after creating all of the new rover class instances, we should push the coordinates to the array
+
+instead of using array coordinates, directly push the rover instances to the array to avoid updating rovers

@@ -2,13 +2,12 @@ class Grid {
   constructor(x_value, y_value) {
     this.x = x_value;
     this.y = y_value;
-    this.roverCoordinates = [];
+    this.rovers = [];
   }
 
-  addRover(x_value, y_value) {
-    this.roverCoordinates.push[x_value, y_value];
+  addRover(rover) {
+    this.rovers.push(rover);
   }
-
 }
 
 module.exports = Grid;

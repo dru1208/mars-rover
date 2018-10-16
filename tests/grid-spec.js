@@ -26,8 +26,8 @@ describe("New Grid Instance", () => {
     expect(testGrid2.y).to.equal(2);
   })
   it("should create a new instance of Grid with no rovers in the rover coordinates array", () => {
-    expect(testGrid1.roverCoordinates).to.eql([]);
-    expect(testGrid2.roverCoordinates).to.eql([]);
+    expect(testGrid1.rovers).to.eql([]);
+    expect(testGrid2.rovers).to.eql([]);
   })
 })
 
@@ -38,7 +38,7 @@ describe("#addRover", () => {
 
   it ("should add new rovers to the rover coordinates array if the rover coordinates are in the grid area", () => {
     let testRover1 = new Rover(4, 4, "N", testGrid1)
-    testGrid1.addRover({x: testRover1.coordinates.x, y: testRover1.coordinates.y})
-
+    testGrid1.addRover(testRover1);
+    expect(testGrid1.rovers).to.eql([testRover1])
   })
 })
