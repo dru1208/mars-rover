@@ -4,10 +4,10 @@ const { expect } = require("chai")
 const Rover = require("../rover.js")
 
 
-// Basic Rover Tests
+// Basic Rover Constructor Tests
 
 describe("Rover", () => {
-  it("should exist", () => {
+  it ("should exist", () => {
     expect(Rover).to.not.be.undefined;
   })
 })
@@ -27,5 +27,16 @@ describe("New Rover Instance", () => {
   it ("should create a new instance of Rover with the third argument as the cardinal direction property", () => {
     expect(Rover1.cardinal_direction).to.equal("N");
     expect(Rover2.cardinal_direction).to.equal("S");
+  })
+})
+
+describe("#rotateLeft", () => {
+  let Rover1 = new Rover(2, 3, "N")
+  let Rover2 = new Rover(5, 6, "S")
+  it ("should rotate the cardinal direction left 90 degrees if the function is called", () => {
+    Rover1.rotateLeft();
+    expect(Rover1.cardinal_direction).to.equal("W");
+    Rover2.rotateLeft();
+    expect(Rover2.cardinal_direction).to.equal("E");
   })
 })

@@ -13,9 +13,9 @@ necessary to check if the x and y values are valid (> 0, and integers)
 
 
 rover class:
-position x
-position y
-direction
+- position x
+- position y
+- direction
 method for rotating L ()
 method for rotating R ()
 method for moving forward space (), accesses this.direction and uses switch cases

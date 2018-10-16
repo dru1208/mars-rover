@@ -4,7 +4,7 @@ const { expect } = require("chai");
 const Grid = require("../grid.js");
 
 
-// Basic Grid Tests
+// Basic Grid Constructor Tests
 
 describe("Grid", () => {
   it ("should exist", () => {
