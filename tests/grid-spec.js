@@ -1,4 +1,10 @@
 "use strict"
 
-import { expect } from 'chai'
-import Grid from '../grid.js'
+const { expect } = require('chai');
+const Grid = require('../grid.js');
+
+describe("Grid", () => {
+  it ("should exist", () => {
+    expect(Grid).to.not.be.undefined;
+  })
+})
