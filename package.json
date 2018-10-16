@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/dru1208/mars-rover#readme",
   "dependencies": {
-    "chai": "^4.2.0"
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
   }
 }
