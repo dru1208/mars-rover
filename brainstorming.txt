@@ -1,8 +1,33 @@
-rovers will be a class, each rover will be a new instance
+1. process text input
+2. set new class instance grid
+3. set new class instance rover
+4. process movement instructions, add to answer
+5. repeat for each set of rovers/instructions
+6. return answer
+
+
+grid class:
+x value
+y value
+necessary to check if the x and y values are valid (> 0, and integers)
+
+
+rover class:
+position x
+position y
+direction
+method for rotating L ()
+method for rotating R ()
+method for moving forward space (), accesses this.direction and uses switch cases
+
+
+method for instructions, runs through each instruction (array) and applies the function to it
+
+
+
 the first of each chunk of 2 input lines will generate a new class
 the second line will call class methods to manipulate the rover
 
+
 start with rover rotation and movement logic
 
-
-put the check that the xvalue and yvalue of the grid are integers / > 0 when processing the text file input
