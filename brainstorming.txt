@@ -1,0 +1,5 @@
+rovers will be a class, each rover will be a new instance
+the first of each chunk of 2 input lines will generate a new class
+the second line will call class methods to manipulate the rover
+
+start with rover rotation and movement logic
