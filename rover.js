@@ -1,8 +1,9 @@
 class Rover {
-  constructor(x_value, y_value, cardinal_direction, grid) {
-    this.coordinates = {x: x_value, y: y_value}
-    this.cardinal_direction = cardinal_direction
-    this.grid = grid
+  constructor(x_value, y_value, cardinal_direction, grid, instructions) {
+    this.coordinates = {x: x_value, y: y_value};
+    this.cardinal_direction = cardinal_direction;
+    this.grid = grid;
+    this.instructions = instructions;
   }
 
   rotateLeft() {

@@ -2,6 +2,7 @@
 
 const { expect } = require("chai");
 const Grid = require("../grid.js");
+const Rover = require("../rover.js")
 
 
 // Basic Grid Constructor Tests
@@ -14,27 +15,30 @@ describe("Grid", () => {
 
 
 describe("New Grid Instance", () => {
-  let Grid1 = new Grid(3, 5);
-  let Grid2 = new Grid(8, 2);
+  let testGrid1 = new Grid(3, 5);
+  let testGrid2 = new Grid(8, 2);
   it ("should create a new instance of Grid with the first argument as the x property", () => {
-    expect(Grid1.x).to.equal(3);
-    expect(Grid2.x).to.equal(8);
+    expect(testGrid1.x).to.equal(3);
+    expect(testGrid2.x).to.equal(8);
   })
   it ("should create a new instance of Grid with the second argument as the y property", () => {
-    expect(Grid1.y).to.equal(5);
-    expect(Grid2.y).to.equal(2);
+    expect(testGrid1.y).to.equal(5);
+    expect(testGrid2.y).to.equal(2);
   })
   it("should create a new instance of Grid with no rovers in the rover coordinates array", () => {
-    expect(Grid1.roverCoordinates).to.eql([]);
-    expect(Grid2.roverCoordinates).to.eql([]);
+    expect(testGrid1.roverCoordinates).to.eql([]);
+    expect(testGrid2.roverCoordinates).to.eql([]);
   })
 })
 
 describe("#addRover", () => {
-  let Grid1 = new Grid(3, 3);
-  let Grid2 = new Grid(8, 8);
+  let testGrid1 = new Grid(3, 3);
+  let testGrid2 = new Grid(8, 8);
+
 
   it ("should add new rovers to the rover coordinates array if the rover coordinates are in the grid area", () => {
+    let testRover1 = new Rover(4, 4, "N", testGrid1)
+    testGrid1.addRover({x: testRover1.coordinates.x, y: testRover1.coordinates.y})
 
   })
 })
