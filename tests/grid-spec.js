@@ -30,4 +30,11 @@ describe("New Grid Instance", () => {
   })
 })
 
-// describe("#addRover")
+describe("#addRover", () => {
+  let Grid1 = new Grid(3, 3);
+  let Grid2 = new Grid(8, 8);
+
+  it ("should add new rovers to the rover coordinates array if the rover coordinates are in the grid area", () => {
+
+  })
+})

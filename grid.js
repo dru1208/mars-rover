@@ -5,6 +5,10 @@ class Grid {
     this.roverCoordinates = [];
   }
 
+  addRover(x_value, y_value) {
+    this.roverCoordinates.push[x_value, y_value];
+  }
+
 }
 
 module.exports = Grid;
