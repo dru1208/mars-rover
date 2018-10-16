@@ -1,7 +1,6 @@
 class Rover {
   constructor(x_value, y_value, cardinal_direction, grid) {
-    this.x = x_value;
-    this.y = y_value;
+    this.coordinates = {x: x_value, y: y_value}
     this.cardinal_direction = cardinal_direction
     this.grid = grid
   }
