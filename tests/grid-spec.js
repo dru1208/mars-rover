@@ -24,4 +24,10 @@ describe("New Grid Instance", () => {
     expect(Grid1.y).to.equal(5);
     expect(Grid2.y).to.equal(2);
   })
+  it("should create a new instance of Grid with no rovers in the rover coordinates array", () => {
+    expect(Grid1.roverCoordinates).to.eql([]);
+    expect(Grid2.roverCoordinates).to.eql([]);
+  })
 })
+
+// describe("#addRover")

@@ -7,18 +7,19 @@
 
 
 grid class:
-x value
-y value
-necessary to check if the x and y values are valid (> 0, and integers)
+- x value
+- y value
+necessary to check if the x and y values are valid (> 0, and integers) (do this in index.js instead of grid.js)
+maybe a list of rovers that have settled so positions
 
 
 rover class:
 - position x
 - position y
 - direction
-method for rotating L ()
-method for rotating R ()
-method for moving forward space (), accesses this.direction and uses switch cases
+- method for rotating L ()
+- method for rotating R ()
+- method for moving forward space (), accesses this.direction and uses switch cases
 
 
 method for instructions, runs through each instruction (array) and applies the function to it
@@ -37,6 +38,9 @@ don't forget to double check that the Rover is actually in the grid
 if movement leads to position being negative, make the rover not move
 
 // assumption that the rover will not move forward if at the edge of the grid
+
+
+make an assumption that the rover will not move forward if there is another rover in the spot
 
 
 console.log the answer
