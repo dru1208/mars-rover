@@ -24,6 +24,10 @@ class Rover {
         break;
     }
   }
+
+  rotateRight() {
+
+  }
 }
 
 module.exports = Rover;

@@ -14,8 +14,8 @@ describe("Rover", () => {
 
 
 describe("New Rover Instance", () => {
-  let Rover1 = new Rover(2, 3, "N")
-  let Rover2 = new Rover(5, 6, "S")
+  let Rover1 = new Rover(2, 3, "N");
+  let Rover2 = new Rover(5, 6, "S");
   it ("should create a new instance of Rover with the first argument as the x coordinate property", () => {
     expect(Rover1.x).to.equal(2);
     expect(Rover2.x).to.equal(5);
@@ -30,13 +30,32 @@ describe("New Rover Instance", () => {
   })
 })
 
+// Rover Direction Methods
+
 describe("#rotateLeft", () => {
-  let Rover1 = new Rover(2, 3, "N")
-  let Rover2 = new Rover(5, 6, "S")
-  it ("should rotate the cardinal direction left 90 degrees if the function is called", () => {
+  let Rover1 = new Rover(2, 3, "N");
+  let Rover2 = new Rover(5, 6, "S");
+  let Rover3 = new Rover(7, 2, "E");
+  let Rover4 = new Rover(3, 5, "W");
+  it ("should rotate the cardinal direction left to W if the original direction is N", () => {
     Rover1.rotateLeft();
     expect(Rover1.cardinal_direction).to.equal("W");
+  })
+  it ("should rotate the cardinal direction left to E if the original direction is S", () => {
     Rover2.rotateLeft();
     expect(Rover2.cardinal_direction).to.equal("E");
+  })
+})
+
+describe("#rotateRight", () => {
+  let Rover1 = new Rover(2, 3, "N")
+  let Rover2 = new Rover(5, 6, "S")
+  let Rover3 = new Rover(7, 2, "E")
+  let Rover4 = new Rover(3, 5, "W")
+  it ("should rotate the cardinal direction left 90 degrees if the function is called", () => {
+    Rover1.rotateRight();
+    expect(Rover1.cardinal_direction).to.equal("E");
+    Rover2.rotateRight();
+    expect(Rover2.cardinal_direction).to.equal("W");
   })
 })
