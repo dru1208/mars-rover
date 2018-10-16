@@ -45,6 +45,14 @@ describe("#rotateLeft", () => {
     Rover2.rotateLeft();
     expect(Rover2.cardinal_direction).to.equal("E");
   })
+  it ("should rotate the cardinal direction left to N if the original direction is E", () => {
+    Rover3.rotateLeft();
+    expect(Rover3.cardinal_direction).to.equal("N");
+  })
+  it ("should rotate the cardinal direction left to S if the original direction is W", () => {
+    Rover4.rotateLeft();
+    expect(Rover4.cardinal_direction).to.equal("S");
+  })
 })
 
 describe("#rotateRight", () => {
@@ -52,10 +60,26 @@ describe("#rotateRight", () => {
   let Rover2 = new Rover(5, 6, "S")
   let Rover3 = new Rover(7, 2, "E")
   let Rover4 = new Rover(3, 5, "W")
-  it ("should rotate the cardinal direction left 90 degrees if the function is called", () => {
+  it ("should rotate the cardinal direction right to E if the original direction is N", () => {
     Rover1.rotateRight();
     expect(Rover1.cardinal_direction).to.equal("E");
+  })
+  it ("should rotate the cardinal direction right to W if the original direction is S", () => {
     Rover2.rotateRight();
     expect(Rover2.cardinal_direction).to.equal("W");
   })
+  it ("should rotate the cardinal direction right to S if the original direction is E", () => {
+    Rover3.rotateRight();
+    expect(Rover3.cardinal_direction).to.equal("S");
+  })
+  it ("should rotate the cardinal direction right to N if the original direction is W", () => {
+    Rover4.rotateRight();
+    expect(Rover4.cardinal_direction).to.equal("N");
+  })
 })
+
+
+
+
+
+
