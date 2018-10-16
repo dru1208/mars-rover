@@ -34,5 +34,7 @@ start with rover rotation and movement logic
 
 don't forget to double check that the Rover is actually in the grid
 
+if movement leads to position being negative, make the rover not move
+
 console.log the answer
 write the answer in a text file

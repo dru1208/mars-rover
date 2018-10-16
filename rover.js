@@ -1,8 +1,9 @@
 class Rover {
-  constructor(x_value, y_value, cardinal_direction) {
+  constructor(x_value, y_value, cardinal_direction, grid) {
     this.x = x_value;
     this.y = y_value;
     this.cardinal_direction = cardinal_direction
+    this.grid = grid
   }
 
   rotateLeft () {
@@ -10,15 +11,12 @@ class Rover {
       case "N":
         this.cardinal_direction = "W";
         break;
-
       case "W":
         this.cardinal_direction = "S";
         break;
-
       case "S":
         this.cardinal_direction = "E";
         break;
-
       case "E":
         this.cardinal_direction = "N";
         break;
@@ -30,18 +28,32 @@ class Rover {
       case "N":
         this.cardinal_direction = "E";
         break;
-
       case "E":
         this.cardinal_direction = "S";
         break;
-
       case "S":
         this.cardinal_direction = "W";
         break;
-
       case "W":
         this.cardinal_direction = "N";
         break;
+    }
+  }
+
+  moveSpace() {
+    switch (this.cardinal_direction) {
+      case "N":
+        break;
+
+      case "S":
+        break;
+
+      case "E":
+        break;
+
+      case "W":
+        break;
+
     }
   }
 }
