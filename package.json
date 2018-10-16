@@ -1,0 +1,30 @@
+{
+  "name": "mars-rover",
+  "version": "1.0.0",
+  "description": "an application that processes the positioning of rover(s) on mars",
+  "main": "rover.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dru1208/mars-rover.git"
+  },
+  "keywords": [
+    "mars",
+    "rover",
+    "yroo"
+  ],
+  "author": "Andrew Hsieh",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/dru1208/mars-rover/issues"
+  },
+  "homepage": "https://github.com/dru1208/mars-rover#readme",
+  "dependencies": {
+    "chai": "^4.2.0"
+  }
+}
