@@ -88,30 +88,32 @@ describe("#rotateRight", () => {
 
 // Rover Movement Method
 
-// describe("#moveSpace", () => {
-//   let marsGrid = new Grid(3, 3)
-//   let rover1 = (1, 1, "N")
-//   let rover2 = (1, 1, "S")
-//   let rover3 = (1, 1, "E")
-//   let rover4 = (1, 1, "W")
+describe("#moveSpace", () => {
+  let marsGrid = new Grid(3, 3);
+  let rover1 = (1, 1, "N", marsGrid);
+  let rover2 = (1, 1, "S", marsGrid);
+  let rover3 = (1, 1, "E", marsGrid);
+  let rover4 = (1, 1, "W", marsGrid);
+  it ("should move from (x, y) to (x, y + 1) if cardinal direction is N and y-coordinate is not maximum grid y-value", () => {
+    rover1.moveSpace();
+    expect(rover1.coordinates).to.eql({x: 1, y: 2});
+  })
 
-//   it ("should move from (x, y) to (x, y + 1) if cardinal direction is N and y-coordinate is not maximum grid y-value" => {
-//     rover1.moveSpace()
-//     expect(rover1.)
-//   })
+  it ("should move from (x, y) to (x, y - 1) if cardinal direction is S and y-coordinate is not 0", () => {
+    rover2.moveSpace()
+    expect(rover2.coordinates).to.eql({x: 1, y: 0});
+  })
 
-//   it ("should move from (x, y) to (x, y - 1) if cardinal direction is S and y-coordinate is not 0" => {
+  it ("should move from (x, y) to (x + 1, y) if cardinal direction is E and x coordinate is not maximum grid x-value", () => {
+    rover3.moveSpace();
+    expect(rover3.coordinates).to.eql({x: 2, y: 1});
+  })
 
-//   })
-
-//   it ("should move from (x, y) to (x + 1, y) if cardinal direction is E and x coordinate is not maximum grid x-value" => {
-
-//   })
-
-//   it ("should move from (x, y) to (x - 1, y) if cardinal direction is W and x coordiante is not 0" => {
-
-//   })
-// })
+  it ("should move from (x, y) to (x - 1, y) if cardinal direction is W and x coordiante is not 0", () => {
+    rover4.moveSpace();
+    expect(rover4.coordinates).to.eql({x: 0, y: 1})
+  })
+})
 
 
 
