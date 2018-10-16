@@ -1,8 +1,10 @@
 "use strict"
 
-const { expect } = require('chai');
-const Grid = require('../grid.js');
+const { expect } = require("chai");
+const Grid = require("../grid.js");
 
+
+// Basic Grid Tests
 
 describe("Grid", () => {
   it ("should exist", () => {

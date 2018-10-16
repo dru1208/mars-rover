@@ -1,10 +1,15 @@
 // Tests for the rover class definition
 
-const { expect } = require('chai')
-const a = 12
+const { expect } = require("chai")
+const Rover = require("../rover.js")
 
-describe("mocha recurisve test", () => {
-  it ("should be 12", () => {
-    expect(a).to.equal(12);
+
+// Basic Rover Tests
+
+describe("Rover", () => {
+  it("should exist", () => {
+    expect(Rover).to.not.be.undefined;
   })
 })
+
+
