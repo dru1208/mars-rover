@@ -76,3 +76,10 @@ TDD really helpful, realized there was a problem with my add rover function and 
 
 
 assume that rover instructions are only allowed ot be L, R, or M or the value will not be processed as an instruction
+
+
+
+improvements
+if the rover info given is not at an integer, maybe round it in the future
+
+chose parse int in case there were extra values added and the rover is outside of the grid with a rounding up

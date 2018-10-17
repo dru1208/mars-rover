@@ -12,6 +12,7 @@ grid point, and maintain the same heading.
 Assume that the square directly North from (x, y) is (x, y+1).
 It must be possible to supply input data to your application via a text file specified on the
 command line.
+
 INPUT​:
 The first line of input is the upper-right coordinates of the plateau, the lower-left coordinates
 are assumed to be 0,0.
@@ -22,6 +23,7 @@ two integers and a letter separated by spaces, corresponding to the x and y coor
 the rover's orientation.
 Each rover will be finished sequentially, which means that the second rover won't start to
 move until the first one has finished moving.
+
 OUTPUT​:
 The output for each rover should be its final coordinates and heading.
 SAMPLE INPUT AND OUTPUT:

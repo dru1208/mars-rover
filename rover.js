@@ -8,15 +8,19 @@ class Rover {
 
   rotateLeft() {
     switch (this.cardinal_direction) {
+
       case "N":
         this.cardinal_direction = "W";
         break;
+
       case "W":
         this.cardinal_direction = "S";
         break;
+
       case "S":
         this.cardinal_direction = "E";
         break;
+
       case "E":
         this.cardinal_direction = "N";
         break;
@@ -25,15 +29,19 @@ class Rover {
 
   rotateRight() {
     switch (this.cardinal_direction) {
+
       case "N":
         this.cardinal_direction = "E";
         break;
+
       case "E":
         this.cardinal_direction = "S";
         break;
+
       case "S":
         this.cardinal_direction = "W";
         break;
+
       case "W":
         this.cardinal_direction = "N";
         break;
@@ -42,6 +50,7 @@ class Rover {
 
   moveForward() {
     switch (this.cardinal_direction) {
+
       case "N":
         if (this.coordinates.y !== this.grid.y) {
           this.coordinates = {x: this.coordinates.x, y: this.coordinates.y + 1}
@@ -72,11 +81,13 @@ class Rover {
     let existingRovers = this.grid.rovers;
     for (let rover of existingRovers) {
       switch (this.cardinal_direction) {
+
         case "N":
           if (rover.coordinates.x === this.coordinates.x && rover.coordinates.y === (this.coordinates.y + 1)) {
             return false;
           }
           break;
+
         case "S":
           if (rover.coordinates.x === this.coordinates.x && rover.coordinates.y === (this.coordinates.y - 1)) {
             return false;
