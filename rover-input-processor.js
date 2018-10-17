@@ -27,6 +27,7 @@ class RoverInputProcessor {
     let inputInstructions =  stringInput.toUpperCase().split("");
     let filteredInstructions = inputInstructions.filter(instruction => instruction === "L" || instruction === "M" || instruction === "R");
     this.roverInstructions = filteredInstructions;
+    return this.roverInstructions;
   }
 }
 

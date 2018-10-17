@@ -56,26 +56,27 @@ describe("#generateRoverInfoObject", () => {
 // rover instruction array from input
 
 describe("#generateRoverInstructions", () => {
+
   it ("should return an array of instructions from a string", () => {
     let string = "LMLMLM";
     let answerArray = ["L", "M", "L", "M", "L", "M"];
     let processor = new RoverInputProcessor;
-    processor.generateRoverInstructions(string)
-    expect(processor.roverInstructions).to.eql(answerArray);
+    let instructions = processor.generateRoverInstructions(string)
+    expect(instructions).to.eql(answerArray);
   })
+
   it ("should only have string values of L, R, or M in the returned array and ignore other string values", () => {
     let potentialInstructions = ["L", "M", "R"];
 
     let string = "LMLMLM";
     let processor = new RoverInputProcessor;
-    processor.generateRoverInstructions(string);
-    for (let instruction of processor.roverInstructions) {
+    let instructions = processor.generateRoverInstructions(string);
+    for (let instruction of instructions) {
       expect(potentialInstructions).to.contain(instruction);
     }
 
     string = "LMLMFLM";
-    processor.generateRoverInstructions(string);
-    instructions = processor.roverInstructions;
+    instructions = processor.generateRoverInstructions(string);
     for (let instruction of instructions) {
       expect(potentialInstructions).to.contain(instruction);
     }
@@ -85,7 +86,7 @@ describe("#generateRoverInstructions", () => {
     let answerArray = ["L", "M", "R"];
     let string = "lmr"
     let processor = new RoverInputProcessor;
-    processor.generateRoverInstructions(string)
-    expect(processor.roverInstructions).to.eql(answerArray)
+    let instructions = processor.generateRoverInstructions(string)
+    expect(instructions).to.eql(answerArray)
   })
 })
