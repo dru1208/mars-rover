@@ -153,11 +153,64 @@ describe("#moveSpace", () => {
 
 
 describe("#checkForwardSpaceBlocked", () => {
-  it ("should return true if the coordinate space in front has a rover", () {
 
+  it ("should return true if the coordinate space in front has a rover when facing N", () => {
+    let grid = new Grid(3, 3);
+    let existingRoverN = new Rover(2, 3, "N", grid, []);
+    grid.addRover(existingRoverN)
+    let roverN = new Rover(2, 2, "N", grid, []);
+    expect(roverN.checkForwardSpaceBlocked()).to.be.true
   })
-  it ("should return false if the coordinate space in front doesn't have a rover", () => {
 
+  it ("should return true if the coordinate space in front has a rover when facing S", () => {
+    let grid = new Grid(3, 3);
+    let existingRoverS = new Rover(2, 1, "S", grid, []);
+    grid.addRover(existingRoverS)
+    let roverS = new Rover(2, 2, "S", grid, []);
+    expect(roverS.checkForwardSpaceBlocked()).to.be.true
+  })
+
+  it ("should return true if the coordinate space in front has a rover when facing E", () => {
+    let grid = new Grid(3, 3);
+    let existingRoverE = new Rover(3, 2, "E", grid, []);
+    grid.addRover(existingRoverE)
+    let roverE = new Rover(2, 2, "E", grid, []);
+    expect(roverE.checkForwardSpaceBlocked()).to.be.true
+  })
+
+  it ("should return true if the coordinate space in front has a rover when facing W", () => {
+    let grid = new Grid(3, 3);
+    let existingRoverW = new Rover(1, 2, "W", grid, []);
+    grid.addRover(existingRoverW)
+    let roverW = new Rover(2, 2, "W", grid, []);
+    expect(roverW.checkForwardSpaceBlocked()).to.be.true
+  })
+
+
+
+
+  it ("should return false if the coordinate space in front doesn't have a rover when facing N", () => {
+    let gridN = new Grid(3, 3);
+    let roverN = new Rover(2, 2, "N", grid, []);
+    expect(roverN.checkForwardSpaceBlocked()).to.be.false
+  })
+
+  it ("should return false if the coordinate space in front doesn't have a rover when facing S", () => {
+    let gridS = new Grid(3, 3);
+    let roverS = new Rover(2, 2, "S", grid, []);
+    expect(roverS.checkForwardSpaceBlocked()).to.be.false
+  })
+
+  it ("should return false if the coordinate space in front doesn't have a rover when facing E", () => {
+    let gridE = new Grid(3, 3);
+    let roverE = new Rover(2, 2, "E", grid, []);
+    expect(roverE.checkForwardSpaceBlocked()).to.be.false
+  })
+
+  it ("should return false if the coordinate space in front doesn't have a rover when facing W", () => {
+    let gridW = new Grid(3, 3);
+    let roverW = new Rover(2, 2, "W", grid, []);
+    expect(roverW.checkForwardSpaceBlocked()).to.be.false
   })
 })
 
