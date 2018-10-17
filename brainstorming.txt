@@ -50,3 +50,6 @@ write the answer in a text file
 after creating all of the new rover class instances, we should push the coordinates to the array
 
 instead of using array coordinates, directly push the rover instances to the array to avoid updating rovers
+
+
+when checking for rover movement, might need to filter out the existing rover itself (probably won't have to because the existing rover will be in the past space, not the new space that is being checked)

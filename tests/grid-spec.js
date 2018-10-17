@@ -32,13 +32,29 @@ describe("New Grid Instance", () => {
 })
 
 describe("#addRover", () => {
-  let testGrid1 = new Grid(3, 3);
-  let testGrid2 = new Grid(8, 8);
+  let testGrid1 = new Grid(8, 8);
+  let testGrid2 = new Grid(3, 3);
+  let testRover = new Rover(4, 4, "N", testGrid1, [])
 
+  it ("should add new rovers to the rover array if the rover coordinates are in the grid area", () => {
+    testGrid1.addRover(testRover);
+    expect(testGrid1.rovers).to.eql([testRover]);
+  })
+  it ("should not add new rovers to the rover array if the rover coordinates are outside the grid area", () => {
+    testGrid2.addRover(testRover);
+    expect(testGrid2.rovers).to.eql([]);
+  })
+})
 
-  it ("should add new rovers to the rover coordinates array if the rover coordinates are in the grid area", () => {
-    let testRover1 = new Rover(4, 4, "N", testGrid1)
-    testGrid1.addRover(testRover1);
-    expect(testGrid1.rovers).to.eql([testRover1])
+describe("#checkRoverPlacementValidity", () => {
+  let grid1 = new Grid(3, 3);
+  let existingRover = new Rover(2, 2, "N", grid1, [])
+  let testRover = new Rover(2, 2, "S", )
+  it ("should return true if the new rover's coordinates are not occupied by an existing rover", () => {
+    expect(grid1.checkRoverPlacementValidity(testRover)).to.be.true;
+  })
+  it ("should return false if the new rover's coordinates are occupied by an existing rover", () => {
+    grid1.addRover(existingRover);
+    expect(grid1.checkRoverPlacementValidity(testRover)).to.be.false;
   })
 })

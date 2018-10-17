@@ -6,7 +6,19 @@ class Grid {
   }
 
   addRover(rover) {
-    this.rovers.push(rover);
+    if (rover.coordinates.x < this.x && rover.coordinates.y < this.y) {
+      this.rovers.push(rover);
+    }
+  }
+
+  checkRoverPlacementValidity(newRover) {
+    for (let rover of this.rovers) {
+      if (newRover.coordinates.x === rover.coordinates.x &&
+        newRover.coordinates.y === rover.coordinates.y) {
+        return false;
+      }
+    }
+    return true;
   }
 }
 
