@@ -10,7 +10,11 @@ describe("RoverInputProcessor", () => {
 
 // takes an input and returns an object with x, y, and cardinal direction for the rover
 describe("#generateRoverInfoObject", () => {
-
+  it ("should return false if the string does not have 3 values separated by spaces", () => {
+    let string = "3 3 3 N";
+    let processor = new RoverInputProcessor;
+    expect(processor.generateRoverInfoObject(string)).to.be.false;
+  })
 })
 
 
@@ -19,7 +23,7 @@ describe("#generateRoverInstructions", () => {
   it ("should return an array of instructions from a string", () => {
     let string = "LMLMLM";
     let answerArray = ["L", "M", "L", "M", "L", "M"];
-    let processor = new RoverInputProcessor
+    let processor = new RoverInputProcessor;
     expect(processor.generateRoverInstructions(string)).to.eql(answerArray);
   })
   it ("should only have string values of L, R, or M in the returned array and ignore other string values", () => {

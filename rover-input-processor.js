@@ -1,7 +1,12 @@
 class RoverInputProcessor {
 
   generateRoverInfoObject(stringInput) {
+    let roverInfoArray = stringInput.split(" ");
+    if (roverInfoArray.length === 3) {
 
+    } else {
+      return false
+    }
   }
 
   generateRoverInstructions(stringInput) {
