@@ -6,7 +6,8 @@ class Grid {
   }
 
   addRover(rover) {
-    if (rover.coordinates.x <= this.x && rover.coordinates.y <= this.y) {
+    if (rover.coordinates.x <= this.x &&
+      rover.coordinates.y <= this.y) {
       this.rovers.push(rover);
     }
   }

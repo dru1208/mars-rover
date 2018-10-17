@@ -56,3 +56,23 @@ instead of using array coordinates, directly push the rover instances to the arr
 
 
 when checking for rover movement, might need to filter out the existing rover itself (probably won't have to because the existing rover will be in the past space, not the new space that is being checked)
+
+
+
+
+TDD really helpful, realized there was a problem with my add rover function and test because my checkForwardSpace test failed
+
+
+
+
+
+
+1. file system reads chunks
+2. grid generated
+3. rover instances created
+4. rovers added to grid, if successful, push to an array of rovers to iterate instructions off of
+5. cycle through array of rovers from step 4 and run through the instructions
+6. console.log rovers array from grid
+
+
+assume that rover instructions are only allowed ot be L, R, or M or the value will not be processed as an instruction

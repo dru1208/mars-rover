@@ -151,6 +151,7 @@ describe("#moveSpace", () => {
   })
 })
 
+// Rover Movement Validity Tests
 
 describe("#checkForwardSpaceEmpty", () => {
 
@@ -185,9 +186,6 @@ describe("#checkForwardSpaceEmpty", () => {
     let roverW = new Rover(2, 2, "W", grid, []);
     expect(roverW.checkForwardSpaceEmpty()).to.be.false
   })
-
-
-
 
   it ("should return true if the coordinate space in front doesn't have a rover when facing N", () => {
     let grid = new Grid(3, 3);
