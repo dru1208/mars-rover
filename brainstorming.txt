@@ -7,10 +7,12 @@
 
 
 grid class:
+necessary to check if the x and y values are valid (> 0, and integers) (do this in index.js instead of grid.js)
 - x value
 - y value
-necessary to check if the x and y values are valid (> 0, and integers) (do this in index.js instead of grid.js)
-maybe a list of rovers that have settled so positions
+- array of rovers on the map
+- method to add rover to the map
+- method to check if a rover can be placed on the map or if something else is already there (this can be expanded in case the plateau in the future has certain objects)
 
 
 rover class:
@@ -20,6 +22,7 @@ rover class:
 - method for rotating L ()
 - method for rotating R ()
 - method for moving forward space (), accesses this.direction and uses switch cases
+check if moving forward is possible with an existing rover in the space
 
 
 method for instructions, runs through each instruction (array) and applies the function to it
