@@ -35,6 +35,7 @@ describe("#addRover", () => {
   let testGrid1 = new Grid(8, 8);
   let testGrid2 = new Grid(3, 3);
   let testRover = new Rover(4, 4, "N", testGrid1, [])
+  let testRover2 = new Rover(3, 3, "N", testGrid2, [])
 
   it ("should add new rovers to the rover array if the rover coordinates are in the grid area", () => {
     testGrid1.addRover(testRover);
@@ -43,6 +44,10 @@ describe("#addRover", () => {
   it ("should not add new rovers to the rover array if the rover coordinates are outside the grid area", () => {
     testGrid2.addRover(testRover);
     expect(testGrid2.rovers).to.eql([]);
+  })
+  it ("should add new rovers to the rover array if a rover coordinate is at the max values of the grid", () => {
+    testGrid2.addRover(testRover2);
+    expect(testGrid2.rovers).to.eql([testRover2]);
   })
 })
 

@@ -68,8 +68,35 @@ class Rover {
     }
   }
 
-  checkForwardSpaceOccupancy() {
+  checkForwardSpaceEmpty() {
+    let existingRovers = this.grid.rovers;
+    for (let rover of existingRovers) {
+      switch (this.cardinal_direction) {
+        case "N":
+          if (rover.coordinates.x === this.coordinates.x && rover.coordinates.y === (this.coordinates.y + 1)) {
+            return false;
+          }
+          break;
+        case "S":
+          if (rover.coordinates.x === this.coordinates.x && rover.coordinates.y === (this.coordinates.y - 1)) {
+            return false;
+          }
+          break;
 
+        case "E":
+          if (rover.coordinates.x === (this.coordinates.x + 1) && rover.coordinates.y === this.coordinates.y) {
+            return false;
+          }
+          break;
+
+        case "W":
+          if (rover.coordinates.x === (this.coordinates.x - 1) && rover.coordinates.y === this.coordinates.y) {
+            return false;
+          }
+          break;
+      }
+    }
+    return true;
   }
 }
 
