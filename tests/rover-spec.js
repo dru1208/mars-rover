@@ -152,6 +152,14 @@ describe("#moveSpace", () => {
 })
 
 
+describe("#checkForwardSpaceBlocked", () => {
+  it ("should return true if the coordinate space in front has a rover", () {
+
+  })
+  it ("should return false if the coordinate space in front doesn't have a rover", () => {
+
+  })
+})
 
 
 

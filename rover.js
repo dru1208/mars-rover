@@ -67,6 +67,10 @@ class Rover {
         break;
     }
   }
+
+  checkForwardSpaceOccupancy() {
+
+  }
 }
 
 module.exports = Rover;
