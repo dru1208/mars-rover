@@ -8,8 +8,14 @@ describe("RoverInputProcessor", () => {
   })
 })
 
-describe("#generateRoverInstructions", () => {
+// takes an input and returns an object with x, y, and cardinal direction for the rover
+describe("#generateRoverInfoObject", () => {
 
+})
+
+
+
+describe("#generateRoverInstructions", () => {
   it ("should return an array of instructions from a string", () => {
     let string = "LMLMLM";
     let answerArray = ["L", "M", "L", "M", "L", "M"];
@@ -40,6 +46,3 @@ describe("#generateRoverInstructions", () => {
     expect(processor.generateRoverInstructions(string)).to.eql(answerArray)
   })
 })
-
-
-// array of instructions

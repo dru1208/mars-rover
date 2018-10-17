@@ -1,4 +1,9 @@
 class RoverInputProcessor {
+
+  generateRoverInfoObject(stringInput) {
+
+  }
+
   generateRoverInstructions(stringInput) {
     let inputInstructions =  stringInput.toUpperCase().split("");
     let filteredInstructions = inputInstructions.filter(instruction => instruction === "L" || instruction === "M" || instruction === "R");
