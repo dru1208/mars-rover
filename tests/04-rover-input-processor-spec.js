@@ -9,6 +9,7 @@ describe("RoverInputProcessor", () => {
 })
 
 // takes an input and returns an object with x, y, and cardinal direction for the rover
+
 describe("#generateRoverInfoObject", () => {
   it ("should return false if the string has more than 3 values separated by spaces", () => {
     let string = "3 3 3 N";
