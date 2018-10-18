@@ -16,4 +16,12 @@ describe("#generateGridInfoObject", () => {
     gridInfo = processor.generateGridInfoObject(string);
     expect(gridInfo).to.eql(answer);
   })
+
+  it ("should return false if there are more than 2 values separated by spaces in the input string", () => {
+
+  })
+
+  it ("should return false if there are less than 2 values separated by spaces in the input string", () => {
+
+  })
 })
