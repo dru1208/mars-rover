@@ -83,3 +83,4 @@ improvements
 if the rover info given is not at an integer, maybe round it in the future
 
 chose parse int in case there were extra values added and the rover is outside of the grid with a rounding up
+also if the value is 2!, parseInt returns 2 in the event of an additional typo

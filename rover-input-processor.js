@@ -16,11 +16,10 @@ class RoverInputProcessor {
         y: y,
         cardinalDirection: cardinalDirection
       }
-      return this.roverInfo
     } else {
       this.roverInfo = false;
-      return this.roverInfo;
     }
+    return this.roverInfo;
   }
 
   generateRoverInstructions(stringInput) {

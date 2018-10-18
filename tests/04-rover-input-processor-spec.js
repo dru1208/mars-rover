@@ -29,6 +29,10 @@ describe("#generateRoverInfoObject", () => {
     let processor = new RoverInputProcessor;
     let roverInfo = processor.generateRoverInfoObject(string)
     expect(roverInfo).to.be.false;
+
+    string = "1 !2 N";
+    roverInfo = processor.generateRoverInfoObject(string);
+    expect(roverInfo).to.be.false;
   })
 
   it ("should return false if the third value of the string is not a cardinal direction", () => {

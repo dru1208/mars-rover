@@ -13,15 +13,22 @@ describe("#generateGridInfoObject", () => {
     let processor = new GridInputProcessor;
     let stringInput = "5 5";
     let answerObject = {x: 5, y: 5};
-    gridInfo = processor.generateGridInfoObject(string);
-    expect(gridInfo).to.eql(answer);
+    gridInfo = processor.generateGridInfoObject(stringInput);
+    expect(gridInfo).to.eql(answerObject);
   })
 
   it ("should return false if there are more than 2 values separated by spaces in the input string", () => {
-
+    let processor = new GridInputProcessor;
+    let stringInput = "5 5 5";
+    gridInfo = processor.generateGridInfoObject(stringInput);
+    expect(gridInfo).to.be.false;
   })
 
   it ("should return false if there are less than 2 values separated by spaces in the input string", () => {
-
+    let processor = new GridInputProcessor;
+    let stringInput = "5";
+    gridInfo = processor.generateGridInfoObject(stringInput);
+    expect(gridInfo).to.be.false;
   })
+
 })
