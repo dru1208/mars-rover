@@ -213,5 +213,16 @@ describe("#checkForwardSpaceEmpty", () => {
 })
 
 
+// Rover Position String Method
+
+describe("#generateRoverPositionString", () => {
+  it ("should return a string", () => {
+    let grid = new Grid(3, 3)
+    let rover = new Rover(3, 3, "W", grid, [])
+    let stringOutput = rover.generateRoverPositionString();
+    expect(typeof stringOutput).to.equal("String");
+  })
+})
+
 
 

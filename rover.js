@@ -7,6 +7,7 @@ class Rover {
   }
 
   rotateLeft() {
+
     switch (this.cardinal_direction) {
 
       case "N":
@@ -28,6 +29,7 @@ class Rover {
   }
 
   rotateRight() {
+
     switch (this.cardinal_direction) {
 
       case "N":
@@ -49,6 +51,7 @@ class Rover {
   }
 
   moveForward() {
+
     switch (this.cardinal_direction) {
 
       case "N":
@@ -78,6 +81,7 @@ class Rover {
   }
 
   checkForwardSpaceEmpty() {
+
     let existingRovers = this.grid.rovers;
     for (let rover of existingRovers) {
       switch (this.cardinal_direction) {
