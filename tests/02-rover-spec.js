@@ -13,7 +13,6 @@ describe("Rover", () => {
   })
 })
 
-
 describe("New Rover Instance", () => {
   let marsGrid = new Grid(8, 8);
   let testRover1 = new Rover(2, 3, "N", marsGrid, []);
@@ -30,8 +29,8 @@ describe("New Rover Instance", () => {
   })
 
   it ("should create a new instance of Rover with the third argument as the cardinal direction property", () => {
-    expect(testRover1.cardinal_direction).to.equal("N");
-    expect(testRover2.cardinal_direction).to.equal("S");
+    expect(testRover1.cardinalDirection).to.equal("N");
+    expect(testRover2.cardinalDirection).to.equal("S");
   })
 
   it ("should create a new instance of Rover with the fourth argument as the grid the rover is on", () => {
@@ -48,25 +47,25 @@ describe("#rotateLeft", () => {
   it ("should rotate the cardinal direction left to W if the original direction is N", () => {
     let testRover = new Rover(2, 3, "N", marsGrid, []);
     testRover.rotateLeft();
-    expect(testRover.cardinal_direction).to.equal("W");
+    expect(testRover.cardinalDirection).to.equal("W");
   })
 
   it ("should rotate the cardinal direction left to E if the original direction is S", () => {
     let testRover = new Rover(5, 6, "S", marsGrid, []);
     testRover.rotateLeft();
-    expect(testRover.cardinal_direction).to.equal("E");
+    expect(testRover.cardinalDirection).to.equal("E");
   })
 
   it ("should rotate the cardinal direction left to N if the original direction is E", () => {
     let testRover = new Rover(7, 2, "E", marsGrid, []);
     testRover.rotateLeft();
-    expect(testRover.cardinal_direction).to.equal("N");
+    expect(testRover.cardinalDirection).to.equal("N");
   })
 
   it ("should rotate the cardinal direction left to S if the original direction is W", () => {
     let testRover = new Rover(3, 5, "W", marsGrid, []);
     testRover.rotateLeft();
-    expect(testRover.cardinal_direction).to.equal("S");
+    expect(testRover.cardinalDirection).to.equal("S");
   })
 })
 
@@ -76,25 +75,25 @@ describe("#rotateRight", () => {
   it ("should rotate the cardinal direction right to E if the original direction is N", () => {
     let testRover = new Rover(2, 3, "N", marsGrid, []);
     testRover.rotateRight();
-    expect(testRover.cardinal_direction).to.equal("E");
+    expect(testRover.cardinalDirection).to.equal("E");
   })
 
   it ("should rotate the cardinal direction right to W if the original direction is S", () => {
     let testRover = new Rover(5, 6, "S", marsGrid, []);
     testRover.rotateRight();
-    expect(testRover.cardinal_direction).to.equal("W");
+    expect(testRover.cardinalDirection).to.equal("W");
   })
 
   it ("should rotate the cardinal direction right to S if the original direction is E", () => {
     let testRover = new Rover(7, 2, "E", marsGrid, []);
     testRover.rotateRight();
-    expect(testRover.cardinal_direction).to.equal("S");
+    expect(testRover.cardinalDirection).to.equal("S");
   })
 
   it ("should rotate the cardinal direction right to N if the original direction is W", () => {
     let testRover = new Rover(3, 5, "W", marsGrid, []);
     testRover.rotateRight();
-    expect(testRover.cardinal_direction).to.equal("N");
+    expect(testRover.cardinalDirection).to.equal("N");
   })
 })
 
@@ -213,15 +212,72 @@ describe("#checkForwardSpaceEmpty", () => {
 })
 
 
-// Rover Position String Method
+// Rover Instruction Method That Handles Movement
+
+describe("#completeMovementInstructions", () => {
+  it ("should cycle through the instructions array and change the rover's direction/move forward accordingly", () => {
+    let grid = new Grid(3, 3);
+    let rover = new Rover(1, 1, "N", grid, ["L", "L", "M"]);
+    rover.completeMovementInstructions();
+    let stringOutput = rover.generateRoverPositionString();
+    expect(stringOutput).to.equal("1 0 S")
+  })
+
+  it ("should consider that rover position will not change if moving forwards will bring the rover to a negative x or y value", () => {
+    let grid = new Grid(3, 3);
+    let rover = new Rover(0, 0, "W", grid, ["M"])
+    rover.completeMovementInstructions;
+    let stringOutput = rover.generateRoverPositionString();
+    expect(stringOutput).to.equal("0 0 W")
+
+    let rover2 = new Rover(0, 0, "S", grid, ["M"])
+    rover2.completeMovementInstructions;
+    let stringOutput2 = rover2.generateRoverPositionString();
+    expect(stringOutput2).to.equal("0 0 S")
+  })
+
+  it ("should consider that rover position will not change if moving forwards will be outside of the grid maximum x or y value", () => {
+    let grid = new Grid(3, 3);
+    let rover = new Rover(3, 3, "E", grid, ["L", "R", "R", "L", "M"])
+    rover.completeMovementInstructions;
+    let stringOutput = rover.generateRoverPositionString();
+    expect(stringOutput).to.equal("3 3 E")
+
+    let rover2 = new Rover(3, 3, "N", grid, ["L", "R", "R", "L", "M"])
+    rover2.completeMovementInstructions;
+    let stringOutput2 = rover2.generateRoverPositionString();
+    expect(stringOutput2).to.equal("3 3 N")
+  })
+
+  it ("should consider that rover position will not change if the space in front of the rover is occupied by another rover", () => {
+    let grid = new Grid(3, 3);
+    let rover = new Rover(3, 3, "E", grid, ["L", "R", "R", "L", "M"])
+    let rover2 = new Rover(3, 2, "N", grid, ["M"]);
+    grid.addRover(rover);
+    let stringOutput2 = rover2.generateRoverPositionString();
+    expect(stringOutput2).to.equal("3 2 N");
+  })
+})
+
+
+
+// Rover Position String Method For Output
 
 describe("#generateRoverPositionString", () => {
   it ("should return a string", () => {
-    let grid = new Grid(3, 3)
-    let rover = new Rover(3, 3, "W", grid, [])
+    let grid = new Grid(3, 3);
+    let rover = new Rover(3, 3, "W", grid, []);
     let stringOutput = rover.generateRoverPositionString();
-    expect(typeof stringOutput).to.equal("String");
+    expect(typeof stringOutput).to.equal("string");
   })
+
+  it ("should return a string with the x coordinate, y coordinate, and cardinal direction separated by spaces", () => {
+    let grid = new Grid(3, 3);
+    let rover = new Rover(3, 3, "W", grid, []);
+    let stringOutput = rover.generateRoverPositionString();
+    expect(stringOutput).to.equal("3 3 W");
+  })
+
 })
 
 

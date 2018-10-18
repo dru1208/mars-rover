@@ -1,58 +1,63 @@
 class Rover {
-  constructor(x_value, y_value, cardinal_direction, grid, instructions) {
+  constructor(x_value, y_value, cardinalDirection, grid, instructions) {
     this.coordinates = {x: x_value, y: y_value};
-    this.cardinal_direction = cardinal_direction;
+    this.cardinalDirection = cardinalDirection;
     this.grid = grid;
     this.instructions = instructions;
   }
 
+  // methods for handling instructions L and R to rotate the rover's orientation
+
   rotateLeft() {
 
-    switch (this.cardinal_direction) {
+    switch (this.cardinalDirection) {
 
       case "N":
-        this.cardinal_direction = "W";
+        this.cardinalDirection = "W";
         break;
 
       case "W":
-        this.cardinal_direction = "S";
+        this.cardinalDirection = "S";
         break;
 
       case "S":
-        this.cardinal_direction = "E";
+        this.cardinalDirection = "E";
         break;
 
       case "E":
-        this.cardinal_direction = "N";
+        this.cardinalDirection = "N";
         break;
     }
   }
 
   rotateRight() {
 
-    switch (this.cardinal_direction) {
+    switch (this.cardinalDirection) {
 
       case "N":
-        this.cardinal_direction = "E";
+        this.cardinalDirection = "E";
         break;
 
       case "E":
-        this.cardinal_direction = "S";
+        this.cardinalDirection = "S";
         break;
 
       case "S":
-        this.cardinal_direction = "W";
+        this.cardinalDirection = "W";
         break;
 
       case "W":
-        this.cardinal_direction = "N";
+        this.cardinalDirection = "N";
         break;
     }
   }
 
+  // method for moving forward one space
+  // accounts for conditionals where moving forward would bring the rover outside the grid
+
   moveForward() {
 
-    switch (this.cardinal_direction) {
+    switch (this.cardinalDirection) {
 
       case "N":
         if (this.coordinates.y !== this.grid.y) {
@@ -80,11 +85,14 @@ class Rover {
     }
   }
 
+  // method for validating instruction M if the space in front is empty
+  // used to check if a rover is occupying the space in front, as two rovers cannot occupy the same position
+
   checkForwardSpaceEmpty() {
 
     let existingRovers = this.grid.rovers;
     for (let rover of existingRovers) {
-      switch (this.cardinal_direction) {
+      switch (this.cardinalDirection) {
 
         case "N":
           if (rover.coordinates.x === this.coordinates.x && rover.coordinates.y === (this.coordinates.y + 1)) {
@@ -112,6 +120,37 @@ class Rover {
       }
     }
     return true;
+  }
+
+  // method for instructing rover to cycle through instructions array property and follow each instruction
+
+  completeMovementInstructions() {
+    let instructions = this.instructions;
+    instructions.forEach(instruction => {
+      switch (instruction) {
+        case "L":
+          this.rotateLeft();
+          break;
+
+        case "R":
+          this.rotateRight();
+          break;
+
+        case "M":
+          if (this.checkForwardSpaceEmpty()) {
+            this.moveForward();
+          }
+          break;
+      }
+    })
+  }
+
+
+  // method for creating the output string that will be shown on console
+
+  generateRoverPositionString() {
+    this.positionString = `${this.coordinates.x} ${this.coordinates.y} ${this.cardinalDirection}`
+    return this.positionString;
   }
 }
 
