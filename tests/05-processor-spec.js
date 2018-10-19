@@ -1,3 +1,7 @@
+"use strict";
+
+// Tests for the processor class
+
 const { expect } = require("chai");
 const Processor = require("../processor.js");
 const Grid = require("../grid.js");

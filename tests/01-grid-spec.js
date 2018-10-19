@@ -1,5 +1,7 @@
 "use strict"
 
+// Tests for the Grid class definition
+
 const { expect } = require("chai");
 const Grid = require("../grid.js");
 const Rover = require("../rover.js")

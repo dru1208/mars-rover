@@ -1,3 +1,5 @@
+"use strict"
+
 // Tests for the rover class definition
 
 const { expect } = require("chai")

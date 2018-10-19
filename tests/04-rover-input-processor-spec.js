@@ -1,3 +1,7 @@
+"use strict";
+
+// Tests for the rover input processor class
+
 const { expect } = require("chai");
 const RoverInputProcessor = require("../rover-input-processor.js")
 

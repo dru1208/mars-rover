@@ -1,3 +1,7 @@
+"use strict";
+
+// Tests for the grid input processor class
+
 const { expect } = require("chai");
 const GridInputProcessor = require("../grid-input-processor.js");
 
