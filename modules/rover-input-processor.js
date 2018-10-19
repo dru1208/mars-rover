@@ -1,3 +1,5 @@
+const { potentialDirections, potentialInstructions } = require("./constants.js")
+
 class RoverInputProcessor {
 
   generateRoverInfoObject(stringInput) {
@@ -9,7 +11,6 @@ class RoverInputProcessor {
     const x = parseInt(roverInfoArray[0]);
     const y = parseInt(roverInfoArray[1]);
     const cardinalDirection = roverInfoArray[2].toUpperCase();
-    const potentialDirections = ["N", "S", "E", "W"];
     if (x && y && x >= 0 && y >= 0 && potentialDirections.includes(cardinalDirection)) {
       this.roverInfo =  {
         x: x,
@@ -24,7 +25,7 @@ class RoverInputProcessor {
 
   generateRoverInstructions(stringInput) {
     const inputInstructions =  stringInput.toUpperCase().split("");
-    const filteredInstructions = inputInstructions.filter(instruction => instruction === "L" || instruction === "M" || instruction === "R");
+    const filteredInstructions = inputInstructions.filter(instruction => potentialInstructions.includes(instruction));
     this.roverInstructions = filteredInstructions;
     return this.roverInstructions;
   }
