@@ -27,4 +27,4 @@ If you'd like to see some more information about the classes that I've made, go 
 During the process of solving this problem, I used the file ```brainstorming.txt``` to jot down my thoughts or ideas when figuring out the next steps to take or little things to look out for.
 
 
-Lastly, ```input.txt contains the sample input information from the problem. Go ahead and run ```node index.js input.txt``` if you'd like!
+Lastly, ```input.txt``` contains the sample input information from the problem. Go ahead and run ```node index.js input.txt``` if you'd like!
