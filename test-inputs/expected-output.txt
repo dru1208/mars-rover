@@ -1,3 +1,18 @@
-input1:
+input1.txt:
 0 5 E
 7 8 W
+3 3 S
+5 5 S
+4 0 S
+
+input2.txt:
+1 2 S
+1 1 N
+
+
+input3.txt:
+2 2 W
+
+
+input4.txt:
+0 0 N

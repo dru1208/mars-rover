@@ -71,9 +71,17 @@ class Processor {
 
     });
 
-    // only complete movement instructions after all of the rovers have been deployed
+    // complete movement instructions after all rovers have been deployed
 
     this.linereader.on('close', () => {
+      // check if last line of input file is empty and adds a rover with empty instruction string
+      if (this.count % 2 === 1) {
+        this.currentRover.addInstructions([]);
+        if (this.grid.checkRoverPlacementValidity(this.currentRover)) {
+          this.grid.addRover(this.currentRover);
+        }
+        this.rovers.push(this.currentRover);
+      }
 
       this.rovers.forEach(rover => {
         rover.completeMovementInstructions();

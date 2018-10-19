@@ -8,7 +8,7 @@ class GridInputProcessor {
     }
     const x = parseInt(gridInfoArray[0]);
     const y = parseInt(gridInfoArray[1]);
-    if (x && y && x > 0 && y > 0) {
+    if (x >= 0 && y >= 0) {
       this.gridInfo = {
         x: x,
         y: y

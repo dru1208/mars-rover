@@ -17,7 +17,6 @@ class RoverInputProcessor {
         y: y,
         cardinalDirection: cardinalDirection
       }
-      console.log(this.roverInfo.x)
     } else {
       this.roverInfo = false;
     }

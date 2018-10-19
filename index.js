@@ -1,5 +1,4 @@
 const Processor = require("./modules/processor.js");
-
 const myArguments = process.argv;
 
 if (myArguments.length === 3) {
