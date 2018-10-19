@@ -7,7 +7,7 @@ NASA has rovers on Mars and they need YOUR help!
 
 1. Clone the files onto your computer with git clone
 
-2. Run ```npm install``` to download all dependencies (note: if testing does not work for step 3, you may have to run "npm install -g mocha")
+2. Run ```npm install``` to download all dependencies (note: if testing does not work for step 3, you may have to install mocha globally by running ```npm install -g mocha```)
 
 3. To check that all of the functions are running properly, use ```npm run test``` to go through all of the tests. Tests can be found in the ```./tests``` directory. If you want to run a test individually, run ```mocha [test-file-name]```
 
