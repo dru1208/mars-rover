@@ -11,12 +11,13 @@ class RoverInputProcessor {
     const x = parseInt(roverInfoArray[0]);
     const y = parseInt(roverInfoArray[1]);
     const cardinalDirection = roverInfoArray[2].toUpperCase();
-    if (x && y && x >= 0 && y >= 0 && potentialDirections.includes(cardinalDirection)) {
+    if (x >= 0 && y >= 0 && potentialDirections.includes(cardinalDirection)) {
       this.roverInfo =  {
         x: x,
         y: y,
         cardinalDirection: cardinalDirection
       }
+      console.log(this.roverInfo.x)
     } else {
       this.roverInfo = false;
     }
