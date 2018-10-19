@@ -8,3 +8,6 @@ LMLLM
 5 5 W
 L
 4 0 S
+LR
+-2 -2 W
+MMM
