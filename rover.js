@@ -1,8 +1,13 @@
 class Rover {
-  constructor(x_value, y_value, cardinalDirection, grid, instructions) {
+  constructor(x_value, y_value, cardinalDirection, grid) {
     this.coordinates = {x: x_value, y: y_value};
     this.cardinalDirection = cardinalDirection;
     this.grid = grid;
+  }
+
+  // method for adding rover instructions
+
+  addInstructions(instructions) {
     this.instructions = instructions;
   }
 
