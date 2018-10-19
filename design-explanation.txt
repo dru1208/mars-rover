@@ -1,11 +1,13 @@
 Focuses: OOP and TDD
 
 General Assumptions:
-1. rovers cannot occupy the same position
-2. rovers have sensors to prevent moving off the grid (and disappearing into the void because that would be a huge waste of money)
-3. these sensors also prevent rovers from moving forward if another rover is in their path
-4. say goodbye to any rovers that are originally deployed outside of the grid as they will never be seen again
-5. if rover 2 is believed to have been deployed to a location that rover 1 is already on, we'll consider that to be an error and ignore rover 2 because that would have resulted in both rovers crashing and exploding and we don't want that
+1. Rovers cannot occupy the same position
+2. Rovers have sensors to prevent moving off the grid (and disappearing into the void because that would be a huge waste of money)
+3. These sensors also prevent rovers from moving forward if another rover is in their path
+4. Say goodbye to any rovers that are originally deployed outside of the grid as they will never be seen again
+5. If rover 2 is believed to have been deployed to a location that rover 1 is already on, we'll consider that to be an error and ignore rover 2 because that would have resulted in both rovers crashing and exploding and we don't want that
+6. The first rover's movement only begins after positions of all rovers have been established on the grid.
+
 
 
 OOP-wise thoughts:
@@ -25,7 +27,7 @@ Tried to refactor the code so each method handles only one task instead of multi
 
 
 TDD-wise thoughts:
-tried to follow a full TDD mindset of red-green-refactor for all of my classes, instance methods, and instance properties
+I tried to follow a full TDD mindset of red-green-refactor for all of my classes, instance methods, and instance properties
 
 conducting so many tests was really helpful for peace of mind when it came to writing new methods (and also refactoring code later on)
 
