@@ -6,7 +6,7 @@ const RoverInputProcessor = require("./rover-input-processor.js");
 const Grid = require("./grid.js");
 const Rover = require("./rover.js");
 
-class InputProcessor {
+class Processor {
   constructor(fileInput) {
     this.linereader = readline.createInterface({
       input: fs.createReadStream(fileInput)
@@ -15,7 +15,7 @@ class InputProcessor {
     this.rovers = [];
   }
 
-  // method for finding final rover positions from the grid
+  // method for finding final rover positions from the grid, returns an array of rover info strings
 
   findRoverPositions() {
     let roverPositions = this.grid.rovers.map(rover => {
@@ -33,16 +33,21 @@ class InputProcessor {
     })
   }
 
+
+
   // method that runs through each line of text file and applies the grid and rover processors to generate
   // new grid and rover instances. once the line reader has completed, rovers complete their movements in
   // order before being displayed on the console
 
   runLineReader() {
-    const parent = this;
+
+    const parent = this; // allows linereader function to access processor instance's properties
+
     this.currentGridInputProcessor = new GridInputProcessor;
     this.currentRoverInputProcessor = new RoverInputProcessor;
 
     this.linereader.on('line', function (line) {
+
       if (parent.count === 1) {
 
           let gridInfo = parent.currentGridInputProcessor.generateGridInfoObject(line);
@@ -54,23 +59,32 @@ class InputProcessor {
           parent.currentRover = new Rover(roverInfo.x, roverInfo.y, roverInfo.cardinalDirection, parent.grid);
 
       } else if (parent.count % 2 === 1) {
+
           let roverInstructions = parent.currentRoverInputProcessor.generateRoverInstructions(line);
           parent.currentRover.addInstructions(roverInstructions);
-          parent.grid.addRover(parent.currentRover);
+          if (parent.grid.checkRoverPlacementValidity(parent.currentRover)) { // check if coordinates are occupied
+            parent.grid.addRover(parent.currentRover);                        // adds rover to grid
+          }
           parent.rovers.push(parent.currentRover);
       }
+
       parent.count ++
 
     });
 
+    // only complete movement instructions after all of the rovers have been deployed
+
     this.linereader.on('close', function () {
+
       parent.rovers.forEach(rover => {
         rover.completeMovementInstructions();
       })
+
       parent.displayRoverPositions();
+
     })
   }
 
 }
 
-module.exports = InputProcessor;
+module.exports = Processor;

@@ -80,30 +80,6 @@ TDD really helpful, realized there was a problem with my add rover function and 
 
 
 
-
-1. file system reads first line
-2. grid input processor instance created, uses methods on first line string
-3. grid instance created from input processor property
-
-4. file system reads next two lines
-5. rover input processor instance created
-6. rover input processor uses methods on second line string for rover info, and methods on third line string for rover instructions
-7. rover instance created from input processor properties and grid instance
-8. add rover instance to grid
-
-// maybe add rover instance to an array of rovers that should be processed with instructions, or run it off of all the rovers on the grid
-// probably do the latter
-
-9. repeat steps 4-8 for each pair of lines that follow to generate each rover instance
-
-10. with an array of all the rovers, execute the instructions
-
-11. create output processor instance with grid
-12. run method that console.log's all of the individual rovers
-
-
-
-
 assume that rover instructions are only allowed ot be L, R, or M or the value will not be processed as an instruction
 
 

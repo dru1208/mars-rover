@@ -1,0 +1,25 @@
+Grids:
+
+method - adds rovers to the grid's list of total rovers (after checking that rover is not outside grid max coordinates)
+method - used to check that a rover isn't going to land on top of another rover and blow both of them up, as again, two rovers can't occupy the same spots.
+
+Grid properties include the x and y dimentions and an array of all rovers present in the grid. This is good for checking whether a rover can move forward, as it can access the grid through its grid property (and consequently all the rovers on the grid). Could also be expanded in the future if we want to generate a visual display of the grid and contents.
+
+
+Rovers:
+2 methods - handle rotation left and right
+method - handle forward movement
+method - check if space is empty in front
+
+I also added two more methods for a rover instance to complete all of it's instructions and return a position string so NASA can rest assured that their valuable investment has not blown up or disappeared.
+
+
+Rover Input Processor -handle rover inputs
+method - return rover constructor information (checking for case and rover coordinates are positive and integer)
+method - return instructions as an array (filtering out potential typos and only leaving L, M, R)
+
+
+Grid Input Processor - handles grid inputs
+method - returns an object with dimensions for the grid
+
+Processor - chose to have an overall processor class to handle file system read, access rover and grid info and return the final rover position as strings on the console. this also made it easier to access rover and grid info outside of the fs line reader function, as i could set the grid, current rover, rover/grid input processors, and list of rovers as the instance's properties.

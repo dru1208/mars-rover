@@ -1,0 +1,33 @@
+Focuses: OOP and TDD
+
+General Assumptions:
+1. rovers cannot occupy the same position
+2. rovers have sensors to prevent moving off the grid (and disappearing into the void because that would be a huge waste of money)
+3. these sensors also prevent rovers from moving forward if another rover is in their path
+4. say goodbye to any rovers that are originally deployed outside of the grid as they will never be seen again
+5. if rover 2 is believed to have been deployed to a location that rover 1 is already on, we'll consider that to be an error and ignore rover 2 because that would have resulted in both rovers crashing and exploding and we don't want that
+
+
+OOP-wise thoughts:
+I decided to work with creating classes and instances because it seemed intuitive to group functions with the aspect of the problem that they align with, while allowing myself to set instance properties and link, say, a rover with it's x and y coordinates or a grid with the rovers on the grid.
+
+Separated the problem logic into two classes (rovers and grids)
+
+This allowed me to give each grid instance a list of rovers on it, and give a rover instance a grid that it is on. I then used these properties for different methods' conditionals.
+
+Separated file system input into 3 classes (rover input processor, grid input processor, and an overall processor)
+I. Rover input processor for the paired lines of code that 1. provide original deployment info and 2. provide instructions for the rover, parses string into desired format for rover instance
+II. Grid input processor for first line of text file that converts string to desired format for grid instance
+III. Processor for handling big picture stuff (file system reading lines and applying rover/grid processor methods, creating rover and grid instance, and logging the ouput to console)
+
+
+Tried to refactor the code so each method handles only one task instead of multiple processes nested together that would make it harder for other developers to understand or to debug in general
+
+
+TDD-wise thoughts:
+tried to follow a full TDD mindset of red-green-refactor for all of my classes, instance methods, and instance properties
+
+conducting so many tests was really helpful for peace of mind when it came to writing new methods (and also refactoring code later on)
+
+i.e. I realized there was a problem with my add rover function and test because my checkForwardSpace test failed
+this was because my conditional did not consider that the rover could be on the largest x or y coordinate on the grid, might have slipped past me if I hadn't tried to write tests with more coverage

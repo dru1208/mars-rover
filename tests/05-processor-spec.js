@@ -1,26 +1,21 @@
 const { expect } = require("chai");
-const OutputProcessor = require("../output-processor.js");
+const Processor = require("../processor.js");
 const Grid = require("../grid.js");
 const Rover = require("../rover.js");
 
-describe("Output Processor", () => {
+describe("Processor", () => {
   it ("should exist", () => {
-    expect(OutputProcessor).to.not.be.undefined;
+    expect(Processor).to.not.be.undefined;
   })
 
-  it ("should have the original grid variable passed in as the instance's grid property", () => {
-    let grid = new Grid(3, 3);
-    let processor = new OutputProcessor(grid);
-    expect(processor.grid).to.eql(grid);
-  })
 })
 
 // Output Method
 
 describe("#findRoverPositions", () => {
   it("should return an array", () => {
-    let grid = new Grid(3, 3);
-    let processor = new OutputProcessor(grid);
+    let processor = new Processor("input.txt");
+    processor.grid = new Grid(3, 3)
     let roverPositions = processor.findRoverPositions();
     expect(Array.isArray(roverPositions)).to.be.true;
   })
@@ -34,7 +29,8 @@ describe("#findRoverPositions", () => {
     grid.addRover(rover2);
     grid.addRover(rover3);
     let answer = ["3 3 N", "2 2 S", "1 1 E"];
-    let processor = new OutputProcessor(grid);
+    let processor = new Processor("input.txt");
+    processor.grid = grid;
     let roverPositions = processor.findRoverPositions();
     expect(roverPositions).to.eql(answer);
   })
