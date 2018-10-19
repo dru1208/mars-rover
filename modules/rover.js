@@ -96,8 +96,8 @@ class Rover {
 
   checkForwardSpaceEmpty() {
 
-    let existingRovers = this.grid.rovers;
-    for (let rover of existingRovers) {
+    const existingRovers = this.grid.rovers;
+    for (const rover of existingRovers) {
       switch (this.cardinalDirection) {
 
         case "N":
@@ -131,7 +131,7 @@ class Rover {
   // method for instructing rover to cycle through instructions array property and follow each instruction
 
   completeMovementInstructions() {
-    let instructions = this.instructions;
+    const instructions = this.instructions;
     instructions.forEach(instruction => {
       switch (instruction) {
         case "L":

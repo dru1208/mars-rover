@@ -13,7 +13,7 @@ class Grid {
   }
 
   checkRoverPlacementValidity(newRover) {
-    for (let rover of this.rovers) {
+    for (const rover of this.rovers) {
       if (newRover.coordinates.x === rover.coordinates.x &&
         newRover.coordinates.y === rover.coordinates.y) {
         return false;

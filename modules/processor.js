@@ -18,7 +18,7 @@ class Processor {
   // method for finding final rover positions from the grid, returns an array of rover info strings
 
   findRoverPositions() {
-    let roverPositions = this.grid.rovers.map(rover => {
+    const roverPositions = this.grid.rovers.map(rover => {
       return rover.generateRoverPositionString();
     })
     this.roverPositions = roverPositions;
@@ -50,17 +50,17 @@ class Processor {
 
       if (parent.count === 1) {
 
-          let gridInfo = parent.currentGridInputProcessor.generateGridInfoObject(line);
+          const gridInfo = parent.currentGridInputProcessor.generateGridInfoObject(line);
           parent.grid = new Grid(gridInfo.x, gridInfo.y);
 
       } else if (parent.count % 2 === 0) {
 
-          let roverInfo = parent.currentRoverInputProcessor.generateRoverInfoObject(line);
+          const roverInfo = parent.currentRoverInputProcessor.generateRoverInfoObject(line);
           parent.currentRover = new Rover(roverInfo.x, roverInfo.y, roverInfo.cardinalDirection, parent.grid);
 
       } else if (parent.count % 2 === 1) {
 
-          let roverInstructions = parent.currentRoverInputProcessor.generateRoverInstructions(line);
+          const roverInstructions = parent.currentRoverInputProcessor.generateRoverInstructions(line);
           parent.currentRover.addInstructions(roverInstructions);
           if (parent.grid.checkRoverPlacementValidity(parent.currentRover)) { // check if coordinates are occupied
             parent.grid.addRover(parent.currentRover);                        // adds rover to grid

@@ -17,8 +17,8 @@ describe("Grid", () => {
 
 
 describe("New Grid Instance", () => {
-  let testGrid1 = new Grid(3, 5);
-  let testGrid2 = new Grid(8, 2);
+  const testGrid1 = new Grid(3, 5);
+  const testGrid2 = new Grid(8, 2);
   it ("should create a new instance of Grid with the first argument as the x property", () => {
     expect(testGrid1.x).to.equal(3);
     expect(testGrid2.x).to.equal(8);
@@ -34,10 +34,10 @@ describe("New Grid Instance", () => {
 })
 
 describe("#addRover", () => {
-  let testGrid1 = new Grid(8, 8);
-  let testGrid2 = new Grid(3, 3);
-  let testRover = new Rover(4, 4, "N", testGrid1, [])
-  let testRover2 = new Rover(3, 3, "N", testGrid2, [])
+  const testGrid1 = new Grid(8, 8);
+  const testGrid2 = new Grid(3, 3);
+  const testRover = new Rover(4, 4, "N", testGrid1, [])
+  const testRover2 = new Rover(3, 3, "N", testGrid2, [])
 
   it ("should add new rovers to the rover array if the rover coordinates are in the grid area", () => {
     testGrid1.addRover(testRover);
@@ -54,9 +54,9 @@ describe("#addRover", () => {
 })
 
 describe("#checkRoverPlacementValidity", () => {
-  let grid1 = new Grid(3, 3);
-  let existingRover = new Rover(2, 2, "N", grid1, [])
-  let testRover = new Rover(2, 2, "S", )
+  const grid1 = new Grid(3, 3);
+  const existingRover = new Rover(2, 2, "N", grid1, [])
+  const testRover = new Rover(2, 2, "S", )
   it ("should return true if the new rover's coordinates are not occupied by an existing rover", () => {
     expect(grid1.checkRoverPlacementValidity(testRover)).to.be.true;
   })
