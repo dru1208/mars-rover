@@ -3,8 +3,8 @@
 // Tests for the rover class definition
 
 const { expect } = require("chai")
-const Rover = require("../rover.js")
-const Grid = require("../grid.js")
+const Rover = require("../modules/rover.js")
+const Grid = require("../modules/grid.js")
 
 
 // Basic Rover Constructor Tests

@@ -1,4 +1,4 @@
-const Processor = require("./processor.js");
+const Processor = require("./modules/processor.js");
 
 const myArguments = process.argv;
 

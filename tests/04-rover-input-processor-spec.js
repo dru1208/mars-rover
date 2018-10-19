@@ -3,7 +3,7 @@
 // Tests for the rover input processor class
 
 const { expect } = require("chai");
-const RoverInputProcessor = require("../rover-input-processor.js")
+const RoverInputProcessor = require("../modules/rover-input-processor.js")
 
 
 describe("RoverInputProcessor", () => {

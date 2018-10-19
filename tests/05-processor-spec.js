@@ -3,9 +3,9 @@
 // Tests for the processor class
 
 const { expect } = require("chai");
-const Processor = require("../processor.js");
-const Grid = require("../grid.js");
-const Rover = require("../rover.js");
+const Processor = require("../modules/processor.js");
+const Grid = require("../modules/grid.js");
+const Rover = require("../modules/rover.js");
 
 describe("Processor", () => {
   it ("should exist", () => {
