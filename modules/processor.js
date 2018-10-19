@@ -18,9 +18,8 @@ class Processor {
   // method for finding final rover positions from the grid, returns an array of rover info strings
 
   findRoverPositions() {
-    const roverPositions = this.grid.rovers.map(rover => {
-      return rover.generateRoverPositionString();
-    })
+    const { rovers } = this.grid
+    const roverPositions = rovers.map(rover => rover.generateRoverPositionString())
     this.roverPositions = roverPositions;
     return roverPositions;
   }
@@ -41,46 +40,46 @@ class Processor {
 
   runLineReader() {
 
-    const parent = this; // allows linereader function to access processor instance's properties
-
     this.currentGridInputProcessor = new GridInputProcessor;
     this.currentRoverInputProcessor = new RoverInputProcessor;
 
-    this.linereader.on('line', function (line) {
+    this.linereader.on('line', (line) => {
 
-      if (parent.count === 1) {
+      if (this.count === 1) {
+          const gridInfo = this.currentGridInputProcessor.generateGridInfoObject(line);
+          this.grid = new Grid(gridInfo.x, gridInfo.y);
 
-          const gridInfo = parent.currentGridInputProcessor.generateGridInfoObject(line);
-          parent.grid = new Grid(gridInfo.x, gridInfo.y);
+      } else if (this.count % 2 === 0) {
 
-      } else if (parent.count % 2 === 0) {
+          const roverInfo = this.currentRoverInputProcessor.generateRoverInfoObject(line);
 
-          const roverInfo = parent.currentRoverInputProcessor.generateRoverInfoObject(line);
-          parent.currentRover = new Rover(roverInfo.x, roverInfo.y, roverInfo.cardinalDirection, parent.grid);
+          const { x, y, cardinalDirection } = roverInfo
+          this.currentRover = new Rover(x, y, cardinalDirection, this.grid);
 
-      } else if (parent.count % 2 === 1) {
+      } else if (this.count % 2 === 1) {
 
-          const roverInstructions = parent.currentRoverInputProcessor.generateRoverInstructions(line);
-          parent.currentRover.addInstructions(roverInstructions);
-          if (parent.grid.checkRoverPlacementValidity(parent.currentRover)) { // check if coordinates are occupied
-            parent.grid.addRover(parent.currentRover);                        // adds rover to grid
+          const roverInstructions = this.currentRoverInputProcessor.generateRoverInstructions(line);
+          this.currentRover.addInstructions(roverInstructions);
+
+          if (this.grid.checkRoverPlacementValidity(this.currentRover)) { // check if coordinates are occupied
+            this.grid.addRover(this.currentRover);                        // adds rover to grid
           }
-          parent.rovers.push(parent.currentRover);
+          this.rovers.push(this.currentRover);
       }
 
-      parent.count ++
+      this.count ++
 
     });
 
     // only complete movement instructions after all of the rovers have been deployed
 
-    this.linereader.on('close', function () {
+    this.linereader.on('close', () => {
 
-      parent.rovers.forEach(rover => {
+      this.rovers.forEach(rover => {
         rover.completeMovementInstructions();
       })
 
-      parent.displayRoverPositions();
+      this.displayRoverPositions();
 
     })
   }
