@@ -32,6 +32,9 @@ class Processor {
     })
   }
 
+  // things that i find hard to test - separate it further (some area that executes instructions,
+  // some area that handles input, and some area that handles output)
+
 
 
   // method that runs through each line of text file and applies the grid and rover processors to generate
@@ -52,7 +55,7 @@ class Processor {
       } else if (this.count % 2 === 0) {
 
           const roverInfo = this.currentRoverInputProcessor.generateRoverInfoObject(line);
-
+          // conditional for if roverInfo is false
           const { x, y, cardinalDirection } = roverInfo
           this.currentRover = new Rover(x, y, cardinalDirection, this.grid);
 

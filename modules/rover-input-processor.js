@@ -1,7 +1,7 @@
 const { potentialDirections, potentialInstructions } = require("./constants.js")
 
 class RoverInputProcessor {
-
+  // get a consistent return instead of a boolean and an object (maybe an empty object)
   generateRoverInfoObject(stringInput) {
     const roverInfoArray = stringInput.split(" ");
     if (roverInfoArray.length !== 3) {
@@ -27,6 +27,7 @@ class RoverInputProcessor {
     const inputInstructions =  stringInput.toUpperCase().split("");
     const filteredInstructions = inputInstructions.filter(instruction => potentialInstructions.includes(instruction));
     this.roverInstructions = filteredInstructions;
+    // add a check if the instructions are different after filtering, maybe a console log to let the user know
     return this.roverInstructions;
   }
 }
